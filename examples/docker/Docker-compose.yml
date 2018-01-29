@@ -1,0 +1,43 @@
+version: '3'
+services:
+  app:
+    container_name: app
+    build: ./node
+    logging:
+      driver: "fluentd"
+    depends_on: 
+      - fluentd
+    links:
+      - fluentd
+    ports:
+      - 8888:8888
+  fluentd:
+    container_name: fluentd
+    build: ./fluentd
+    depends_on: 
+      - elasticsearch
+    ports:
+      - 24224:24224
+    links:
+      - elasticsearch
+    volumes:
+      - /tmp:/fluentd/log
+  elasticsearch:
+    image: elasticsearch:latest
+    container_name: elasticsearch
+    ports:
+      - 9200:9200
+      - 9300:9300
+  kibana:
+    image: kibana:latest
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    environment:
+      - server.name='kibana'
+      - server.host='0'
+      - elasticsearch.url='http://elasticsearch:9200'
+    links:
+      - elasticsearch

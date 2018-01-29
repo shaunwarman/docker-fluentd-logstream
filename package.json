@@ -1,0 +1,28 @@
+{
+  "name": "docker-fluentd-logstream",
+  "version": "0.0.1",
+  "description": "A nodejs streaming logger for docker log driver",
+  "main": "index.js",
+  "scripts": {
+    "docker": "docker-compose -f ./examples/docker/Docker-compose.yml up",
+    "test": "./node_modules/tape/bin/tape test/test-logger.js"
+  },
+  "engines": {
+    "node": ">9"
+  },
+  "keywords": [
+    "docker",
+    "log",
+    "driver",
+    "nodejs",
+    "fluentd"
+  ],
+  "author": "Shaun Warman",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^4.8.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
