@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "docker-fluentd-logstream": "0.0.1",
+    "docker-fluentd-logstream": "0.0.3",
     "express": "^4.16.2"
   }
 }

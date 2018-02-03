@@ -1,6 +1,6 @@
 {
   "name": "docker-fluentd-logstream",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "A nodejs streaming logger for docker log driver",
   "main": "index.js",
   "scripts": {
